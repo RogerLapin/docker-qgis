@@ -12,7 +12,7 @@ services:
     depends_on:
     - qgis-exec
   qgis-exec:
-    image: qgis-exec:latest
+    image: qgis-exec:2.18
     networks:
     - qgis
     volumes:
