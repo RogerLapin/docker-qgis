@@ -1,18 +1,11 @@
 # qgis-build
 
 This directory includes a Dockerfile for building the `qgis-build` Docker image, which includes
-all the tools and libraries necessary for building QGIS from source.
+all the tools and libraries necessary for building QGIS from source. 
+It is devoted to build version 2.18.18 of qgis-server, and has not been tested for sooner version.
+It is not suited to later versions of qgis (3+) since many dependencies havec changed (Pyton+, Qt+, etc.)
 
 ## Build the image
-
-Clone the Git repo and change to the `qgis-build` directory:
-
-```shell
-$ git clone https://github.com/Oslandia/docker-qgis
-$ cd docker-qgis/qgis-build
-```
-
-Build the `qgis-build` Docker image:
 
 ```shell
 $ docker build -t qgis-build .
@@ -28,6 +21,13 @@ tree will be part of the Docker context and building the image again will take a
 $ mkdir build
 $ cd build
 $ git clone https://github.com/qgis/QGIS.git
+$ git fetch
+$ cd docker-qgis/qgis-build
+```
+
+Build the `qgis-build` Docker image:
+
+
 ```
 
 Build QGIS:
