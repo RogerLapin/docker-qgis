@@ -22,6 +22,7 @@ $ mkdir build
 $ cd build
 $ git clone https://github.com/qgis/QGIS.git
 $ git fetch
+$ git checkout tags/final-2_18_18 -b final-2_18_18
 $ cd docker-qgis/qgis-build
 ```
 
