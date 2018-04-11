@@ -53,15 +53,19 @@ ENV TINI_VERSION v0.17.0
 ADD extra/tini /tini
 RUN chmod +x /tini
 
-# ENV QGIS_PREFIX_PATH /usr
-# ENV QGIS_SERVER_LOG_FILE /var/log/qgisserver.log
-# ENV QGIS_SERVER_LOG_LEVEL 0
+ENV QGIS_PREFIX_PATH /usr
+ENV QGIS_SERVER_LOG_FILE /var/log/qgisserver.log
+ENV QGIS_SERVER_LOG_LEVEL 0
 ENV QGIS_DEBUG 1
+
+RUN ["chmod", "777", "/usr/share/qgis/resources"]
+RUN ["chmod", "777", "/usr/share/qgis/resources/srs-template.db"]
+RUN ["cp", "/usr/share/qgis/resources/srs-template.db" , "/usr/share/qgis/resources/srs.db"]
 
 USER qgis
 WORKDIR /home/qgis
 
 
-CMD ["/tini", "--", "xvfb-run", \
+CMD ["/tini", "--", "xvfb-run", "-a", \
      "spawn-fcgi", "-p", "5555", "-n", "-d", "/home/qgis", \
      "/usr/lib/cgi-bin/qgis_mapserv.fcgi"]
