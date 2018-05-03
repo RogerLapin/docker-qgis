@@ -12,19 +12,29 @@
     <script>
       var layers = [
         new ol.layer.Tile({
-          source: new ol.source.TileWMS({
+            source: new ol.source.XYZ({
+              url: 'http://ger-qal-fp.reseau.francetelecom.fr/fdp/tms/osmbright/{z}/{x}/{y}.png' 
+            })
+          })
+	,
+        new ol.layer.Image({
+          source: new ol.source.ImageWMS({
             url: '/qgis',
-            params: {'LAYERS': 'osm'},
+            params: {
+ 		'LAYERS':'troncon_route,troncon_hydrographique,zone_occupation_sol,aerodrome,troncon_route,inao_viti,noeud_commune,communication_restreinte,couv_orange,couv_bouygues,commune',
+		'MAP':'/data/open_data_2.14.22.qgs'
+	      },
             serverType: 'qgis'
           })
         })
+
       ];
       var map = new ol.Map({
         layers: layers,
         target: 'map',
         view: new ol.View({
-          center: [0, 0],
-          zoom: 4
+          center: [-385053.6,6229377.3],
+          zoom: 13
         })
       });
     </script>

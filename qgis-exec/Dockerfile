@@ -16,7 +16,7 @@ COPY deb/libqgis-analysis*.deb \
      deb/qgis-server*.deb \
      /qgis/
 
-COPY extra/* /usr/local/share/fonts/truetype/myfonts/
+#COPY extra/* /usr/local/share/fonts/truetype/myfonts/
 
 
 RUN apt-get update \
@@ -24,28 +24,28 @@ RUN apt-get update \
         spawn-fcgi \
         xauth \
         xvfb \ 
-     && apt install --no-install-recommends --no-install-suggests -y /qgis/libqgis-core2.18.18_2.18.18~stretch1_amd64.deb \
-     && apt install --no-install-recommends --no-install-suggests -y /qgis/libqgis-analysis2.18.18_2.18.18~stretch1_amd64.deb \
-     && apt install --no-install-recommends --no-install-suggests -y /qgis/libqgis-gui2.18.18_2.18.18~stretch1_amd64.deb \
-     && apt install --no-install-recommends --no-install-suggests -y /qgis/libqgis-customwidgets_2.18.18~stretch1_amd64.deb \
-     && apt install --no-install-recommends --no-install-suggests -y /qgis/libqgis-app2.18.18_2.18.18~stretch1_amd64.deb \
-     && apt install --no-install-recommends --no-install-suggests -y /qgis/libqgisgrass7-2.18.18_2.18.18~stretch1_amd64.deb \
-     && apt install --no-install-recommends --no-install-suggests -y /qgis/libqgispython2.18.18_2.18.18~stretch1_amd64.deb \
-     && apt install --no-install-recommends --no-install-suggests -y /qgis/libqgis-server2.18.18_2.18.18~stretch1_amd64.deb \
-     && apt install --no-install-recommends --no-install-suggests -y /qgis/python-qgis-common_2.18.18~stretch1_all.deb \
-     && apt install --no-install-recommends --no-install-suggests -y /qgis/libqgis-networkanalysis2.18.18_2.18.18~stretch1_amd64.deb \
-     && apt install --no-install-recommends --no-install-suggests -y /qgis/qgis-providers-common_2.18.18~stretch1_all.deb \
-     && apt install --no-install-recommends --no-install-suggests -y /qgis/qgis-providers_2.18.18~stretch1_amd64.deb \
-     && apt install --no-install-recommends --no-install-suggests -y /qgis/python-qgis_2.18.18~stretch1_amd64.deb \
-     && apt install --no-install-recommends --no-install-suggests -y /qgis/qgis-common_2.18.18~stretch1_all.deb \
-     && apt install --no-install-recommends --no-install-suggests -y /qgis/qgis-server_2.18.18~stretch1_amd64.deb \
+     && apt install --no-install-recommends --no-install-suggests -y /qgis/libqgis-core*~stretch1_amd64.deb \
+     && apt install --no-install-recommends --no-install-suggests -y /qgis/libqgis-analysis*~stretch1_amd64.deb \
+     && apt install --no-install-recommends --no-install-suggests -y /qgis/libqgis-gui*~stretch1_amd64.deb \
+     && apt install --no-install-recommends --no-install-suggests -y /qgis/libqgis-customwidgets_*~stretch1_amd64.deb \
+     && apt install --no-install-recommends --no-install-suggests -y /qgis/libqgis-app*~stretch1_amd64.deb \
+     && apt install --no-install-recommends --no-install-suggests -y /qgis/libqgisgrass7-*~stretch1_amd64.deb \
+     && apt install --no-install-recommends --no-install-suggests -y /qgis/libqgispython*~stretch1_amd64.deb \
+     && apt install --no-install-recommends --no-install-suggests -y /qgis/libqgis-server*~stretch1_amd64.deb \
+     && apt install --no-install-recommends --no-install-suggests -y /qgis/python-qgis-common_*~stretch1_all.deb \
+     && apt install --no-install-recommends --no-install-suggests -y /qgis/libqgis-networkanalysis*~stretch1_amd64.deb \
+     && apt install --no-install-recommends --no-install-suggests -y /qgis/qgis-providers-common_*~stretch1_all.deb \
+     && apt install --no-install-recommends --no-install-suggests -y /qgis/qgis-providers_*~stretch1_amd64.deb \
+     && apt install --no-install-recommends --no-install-suggests -y /qgis/python-qgis_*~stretch1_amd64.deb \
+     && apt install --no-install-recommends --no-install-suggests -y /qgis/qgis-common_*~stretch1_all.deb \
+     && apt install --no-install-recommends --no-install-suggests -y /qgis/qgis-server_*~stretch1_amd64.deb \
   #  && apt install --no-install-recommends --no-install-suggests -y /qgis/*.deb \
      && rm -rf /var/lib/apt/lists/*
 
 
 RUN useradd -m qgis
 
-RUN chown -R qgis:qgis /usr/local/share/fonts/truetype/myfonts
+#RUN chown -R qgis:qgis /usr/local/share/fonts/truetype/myfonts
 
 
 ENV TINI_VERSION v0.17.0

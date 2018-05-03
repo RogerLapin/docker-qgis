@@ -1,0 +1,1 @@
+docker build --build-arg https_proxy="http://10.144.2.140:3128" --build-arg http_proxy="http://10.144.2.140:3128" --build-arg HTTP_PROXY="http://10.144.2.140:3128" --build-arg HTTPS_PROXY="http://10.144.2.140:3128" -t qgis-2.14.22 .

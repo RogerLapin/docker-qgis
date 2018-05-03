@@ -12,12 +12,16 @@ services:
     depends_on:
     - qgis-exec
   qgis-exec:
-    image: qgis-exec:2.18
+    image: qgis-2.14.22
     networks:
     - qgis
     volumes:
-    - ./data:/data:ro
+    - /data:/data:ro
     environment:
-    - QGIS_PROJECT_FILE=/data/osm.qgs
+    - QGIS_DEBUG=1
+    - QGIS_LOG_FILE=/tmp/qgis.log
+    - QGIS_SERVER_LOG_LEVEL=0
+    - QGIS_SERVER_LOG_FILE=/tmp/qgisserver.log
+
 networks:
   qgis: {}
