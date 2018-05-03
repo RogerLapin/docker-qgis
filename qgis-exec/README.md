@@ -1,11 +1,11 @@
 # qgis-exec
 
 This directory includes a Dockerfile and other files for building the `qgis-exec` Docker image,
-which includes all the software necessary for running QGIS Server 2.18.18
+which includes all the software necessary for running QGIS Server 2.14.22
 
 ## Build the image
 
-build -t qgis-exec:2.18 .
+build -t qgis-2.14.22 .
 
 ## launch the image
 
