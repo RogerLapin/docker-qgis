@@ -2,8 +2,8 @@
 
 This directory includes a Dockerfile for building the `qgis-build` Docker image, which includes
 all the tools and libraries necessary for building QGIS from source. 
-It is devoted to build version 2.18.18 of qgis-server, and has not been tested for sooner version.
-It is not suited to later versions of qgis (3+) since many dependencies havec changed (Pyton+, Qt+, etc.)
+It is devoted to build version 2.14.22 of qgis-server, and has not been tested for sooner version.
+It is not suited to later versions of qgis (3+) since many dependencies have changed (Pyton+, Qt+, etc.)
 
 ## Build the image
 
